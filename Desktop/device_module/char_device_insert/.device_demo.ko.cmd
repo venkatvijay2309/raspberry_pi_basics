@@ -1,0 +1,1 @@
+cmd_/home/vijay/Desktop/device_module/char_device_insert/device_demo.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/vijay/Desktop/device_module/char_device_insert/device_demo.ko /home/vijay/Desktop/device_module/char_device_insert/device_demo.o /home/vijay/Desktop/device_module/char_device_insert/device_demo.mod.o
