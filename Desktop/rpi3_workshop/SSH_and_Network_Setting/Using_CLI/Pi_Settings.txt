@@ -1,0 +1,76 @@
+sudo raspi-config
+	> Interfacing Options  > Enable SSH Server
+	> Change User Password  > change Password to "vlsilab"
+	> Localisation Options  > Change Timezone > Asia > Kolkata
+
+	
+
+sudo nano /etc/network/interfaces
+
+#########################################################
+auto lo
+iface lo inet loopback
+
+iface eth0 inet manual
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+	
+##########################################################
+
+
+
+
+sudo nano /etc/dhcpcd.conf
+
+###########################################################
+
+
+nohook lookup-hostname
+
+nterface eth0
+
+static ip_address=192.168.80.xx/24
+static routers=192.168.80.1
+static domain_name_servers=200.200.200.7
+
+interface wlan0
+static ip_address=192.168.80.xx/24
+static routers=192.168.80.1
+static domain_name_servers=200.200.200.7
+
+##############################################################
+
+
+
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+##############################################################
+
+update_config=1
+network={
+        ssid="nielitvlsi"
+        psk="nielitcalicut"
+}
+
+
+###############################################################
+
+
+
+
+sudo nano /etc/apt/apt.conf
+
+
+#################################################################
+
+
+Acquire::http::proxy "http://username:password@200.200.200.5:6588/";
+Acquire::https::proxy "http://username:password@200.200.200.5:6588/";
+Acquire::ftp::proxy "http://username:password@200.200.200.5:6588/";
+
+
+##################################################################
+
+

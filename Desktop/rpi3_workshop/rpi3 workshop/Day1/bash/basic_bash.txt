@@ -1,0 +1,87 @@
+################################## Basic Linux Command #############################
+
+# list of contents 
+ls
+
+# Print working directory
+pwd
+
+# make directory
+mkdir xyz
+
+#remove directory
+rm -rf xyz
+
+#change directory
+cd xyz
+
+#go to previous directory
+cd ..
+
+#create new file 
+nano abc.txt
+
+
+################################## Write into file ##################################
+
+echo "hello World!" > abc.txt
+
+################################## Read From File  ###################################
+
+cat /abc.txt
+
+
+
+cat /sys/class/thermal/thermal_zone0/temp
+
+temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+echo $temp
+
+
+##################################### INFINITE LOOP #############################
+
+#!/bin/bash
+
+while true
+do	
+	echo "Hello World!"
+	sleep 1
+done
+
+
+##################################### FOR LOOP #############################
+#!/bin/bash
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+
+
+##################################### WHILE LOOP #############################
+
+#!/bin/bash
+x=1
+while [ $x -le 5 ]
+do
+  echo "Welcome $x times"
+  x=$(( $x + 1 ))
+done
+
+
+##################################### IF ELSE CONDITIONS #############################
+
+#!/bin/bash
+
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+else
+   echo "a is not equal to b"
+fi
+
+
+########################################################################################
+

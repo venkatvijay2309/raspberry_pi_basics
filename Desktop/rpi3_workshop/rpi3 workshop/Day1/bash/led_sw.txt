@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gpio mode 26 in
+gpio mode 26 up
+gpio mode 29 out
+
+while true
+do	
+	gpio write 29 $(gpio read 26)
+done

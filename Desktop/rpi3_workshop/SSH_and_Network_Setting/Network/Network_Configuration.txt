@@ -1,0 +1,7 @@
+IP range 		: 192.168.80.2 to 192.168.80.254
+Subnet Mask		: 255.255.255.0
+Default Gateway	: 192.168.80.1
+Primary DNS		: 200.200.200.7
+Secondary DNS	: 200.200.200.1
+Poxy Server		: 200.200.200.5
+Proxy Port		: 6588

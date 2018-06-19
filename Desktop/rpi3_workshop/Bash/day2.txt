@@ -1,0 +1,6 @@
+linux basic commands
+file oprations(cat/echo)
+GPIO
+BASH GPIO
+Webio pi
+Python
