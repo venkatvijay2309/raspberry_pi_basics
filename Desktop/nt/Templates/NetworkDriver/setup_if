@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ifconfig sn0 192.168.64.1 # snull-localhost0 # Is also snull-remotehost1 (192.168.65.1)
+ifconfig sn1 192.168.65.2 # snull-localhost1 # Is also snull-remotehost0 (192.168.64.2)
+# tcpdump -i sn0
+# ping (snull-localhost0 ->) snull-remotehost0
+# tcpdump -i sn1
+# ping (snull-localhost1 ->) snull-remotehost1

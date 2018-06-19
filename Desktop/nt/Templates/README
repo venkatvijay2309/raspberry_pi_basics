@@ -1,0 +1,20 @@
+This directory contains the templates used in the Linux Driver workshops
+conducted at SysPlay eLearning Academy for You.
+
+Many of them are w.r.t. the custom hardware LDDK. For version compatibility,
+look into the file VERSIONS. Details about the LDDK could be found under the
+LDDK folder.
+
+You may compile these templates by typing make in the toplevel folder or
+individual folders after setting the KERNEL_SOURCE variable to your kernel's
+source directory in the top-level Makefile & module.mk
+
+Check out the SEQUENCE file for knowing the order in which you need to play
+with the content.
+
+For more workshop details,
+check out at http://sysplay.in/index.php?pagefile=weekend_workshops, or
+contact us at <workshop@sysplay.in>
+
+For the slide sets from the workshop, visit:
+http://sysplay.in/index.php?pagefile=linux_drivers

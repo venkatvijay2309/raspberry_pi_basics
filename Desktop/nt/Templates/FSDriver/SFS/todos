@@ -1,0 +1,3 @@
++ Implement one or more of the below for LDD workshop to do
+	sfs_statfs - for df to show it up
+	sfs_rename - for mv to work

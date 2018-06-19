@@ -1,0 +1,81 @@
+Template Driver Learning Sequence
+---------------------------------
++ FirstDriver/first_driver.c - hello world driver
+
+Debugging Learning Sequence
+---------------------------
+
+Character Driver Learning Sequence
+----------------------------------
++ CharDriver/first_char_driver.c - device number registration
++ CharDriver/null.c - file operations registration
++ CharDriver/memory.c - participant exercise result + offset usage
++ CharDriver/multiple_minor.c - private_data usage + multiple minor funda
++ CharDriver/mem_ioctl.c - ioctl usage
++ CharDriver/final_char_driver.c - automatic device creation
+
+Low-level Access Learning Sequence
+----------------------------------
++ CharDriver/video_ram.c - ioremap/iounmap usage
++ CharDriver/uart_ddk.c - inb/outb usage + start with DDK
++ CharDriver/led_board.c - DDK's 8-LED Array fun
++ CharDriver/led_ioctl.c - ioctl with DDK
+
+Kernel C Learning Sequence
+--------------------------
++ CharDriver/led_ioctl_protected.c - mutex usage
+
+USB Driver Learning Sequence
+----------------------------
++ USBDriver/first_usb_driver.c - bare bone USB horizontal only driver
++ USBDriver/usb_char_driver.c - bare bone USB horizontal + Character vertical driver
++ USBDriver/ddk_led.c - PGM LED USB driver with control endpoint 0 & ioctl
++ USBDriver/ddk_u2s.c - "USB to Serial" Driver with interrupt endpoints & read/write
++ USBDriver/ddk_mem.c - EEPROM USB Driver with ctrl & int endpoints, ioctls & read/write
++ USBDriver/ddk_io.c - controlling the DDK I/O over USB control endpoint 0
+
+Block Driver Learning Sequence
+------------------------------
++ BlockDriver/ram_block.c & related files - block driver over RAM + partition funda
++ BlockDriver/ddk_block.c & related files - block driver over DDK's Flash
+
+File System Driver Learning Sequence
+------------------------------------
++ FSDriver/akp_simple.c - hard-coded FS but with basic functionality (only data on block device)
++ FSDriver/SFS/real_sfs_bb.c & related files - Simula FS bare bone
++ FSDriver/SFS/real_sfs_minimal.c & related files - Simula FS intermediate step
++ FSDriver/SFS/real_sfs.c & related files - Simula FS full fledged
++ FSDriver/AKPFS/akpfs.c & related files - sample of a Real FS
+
+PCI Driver Learning Sequence
+----------------------------
++ PCIDriver/expt_drv.c - experimental PCI driver for a PCI device (default: Realtek NIC 8136)
+
+Interrupt Driver Learning Sequence
+----------------------------------
++ PCIDriver/expt_drv_with_intr.c - experimental PCI driver w/ interrupt for Realtek NIC 8136
+
+DMA Driver Learning Sequence
+----------------------------
++ PCIDriver/expt_drv_with_dma.c - experimental PCI driver w/ DMA for Realtek NIC 8136
+
+Network Driver Learning Sequence
+--------------------------------
++ NetworkDriver/snull.c - sample by Alessandro Rubini
++ NetworkDriver/net_stk.c & related files - network driver for Realtek NIC 8136
+
+Applications Usability
+----------------------
++ cat, echo - first_char_driver
++ Apps/file_ops - null, memory(, multiple_minor), mem_ioctl (MEM_IOCTL), final_char_driver
++ echo, od - video_ram
++ Apps/led_ops - led_board, led_ioctl
++ Apps/usb_ops - ddk_led, ddk_u2s
++ Apps/serial_comm - ddk_u2s
++ Apps/usb_mem - ddk_mem
++ Apps/usb_io - ddk_io
++ fdisk - rb
++ dd - rb, ddkb
++ FS ops like cd, vi, rm, ... - akp_simple, akpfs
++ Apps/mkfs.akp - akpfs
++ Apps/format_real_sfs, Apps/browse_real_sfs - sfs

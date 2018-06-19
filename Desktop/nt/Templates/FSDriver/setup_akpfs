@@ -1,0 +1,63 @@
+#!/bin/bash
+
+FS=akp_simple
+TARGET=
+SUDO=sudo
+
+while [ $# -gt 0 ]
+do
+	case $1 in
+	-a)
+		FS=akp;;
+	-c)
+		TARGET=clean;;
+	-n)
+		SUDO=;;
+	*)
+		echo "Usage: $0 [ -a ] [ -c ] [ -n ]"
+		exit 1;;
+	esac
+	shift
+done
+
+DRIVERS_PATH=${BASE_FOLDER}/SysPlay/HandsOn/LinuxDrivers
+CMDS="echo Operation Done";
+
+# Setup the block device /dev/rb*
+make -C ${DRIVERS_PATH}/BlockDriver ${TARGET}
+if [ "${TARGET}" = "" ]
+then
+	${SUDO} insmod ${DRIVERS_PATH}/BlockDriver/dor.ko
+else
+	CMDS="${SUDO} rmmod dor && ${CMDS}"
+fi
+
+# Create the akp fs on the block device /dev/rb1
+make -C ${DRIVERS_PATH}/Apps ${TARGET}
+if [ "${TARGET}" = "" ]
+then
+	${SUDO} ${DRIVERS_PATH}/Apps/mkfs.akp /dev/rb1
+fi
+
+# Load the akp file system driver
+make -C ${DRIVERS_PATH}/FSDriver ${TARGET}
+if [ "${TARGET}" = "" ]
+then
+	${SUDO} insmod ${DRIVERS_PATH}/FSDriver/${FS}.ko
+else
+	CMDS="${SUDO} rmmod ${FS} && ${CMDS}"
+fi
+
+# Mount & access the whole stuff
+if [ "${TARGET}" = "" ]
+then
+	${SUDO} mount -t ${FS} /dev/rb1 ${DRIVERS_PATH}/FSDriver/mnt
+else
+	CMDS="${SUDO} umount ${DRIVERS_PATH}/FSDriver/mnt && ${CMDS}"
+fi
+
+# Final set of commands: Printing Done or All the commands for clean
+eval ${CMDS}
+
+#cd ${DRIVERS_PATH}/FSDriver/mnt
+#bash
