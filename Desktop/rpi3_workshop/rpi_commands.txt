@@ -1,0 +1,4 @@
+running on start_up 
+nano /home/pi/.config/lxsession/LXDE-pi/autostart
+@/usr/bin/python3 /home/pi/main.py
+
